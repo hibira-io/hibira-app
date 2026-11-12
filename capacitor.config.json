@@ -1,0 +1,23 @@
+{
+  "appId": "io.hibira.app",
+  "appName": "Hibira",
+  "webDir": "www",
+  "server": {
+    "url": "https://hibira.io/portal/dashboard",
+    "allowNavigation": [
+      "hibira.io",
+      "chat.hibira.io"
+    ],
+    "errorPath": "offline.html"
+  },
+  "ios": {
+    "appendUserAgent": "HibiraApp/ios",
+    "contentInset": "never",
+    "limitsNavigationsToAppBoundDomains": false,
+    "scheme": "Hibira"
+  },
+  "android": {
+    "appendUserAgent": "HibiraApp/android",
+    "allowMixedContent": false
+  }
+}

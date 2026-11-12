@@ -1,0 +1,10 @@
+{
+  "name": "Hibira",
+  "subtitle": "随时随地掌握你的实时应用",
+  "privacyPolicyUrl": "https://hibira.io/legal/privacy",
+  "description": "把 Hibira 放进口袋。查看实时应用状态、处理审批请求、关注等候室与在线客服，一个 App 全搞定。\n\n• 总览：每个应用的连接数、消息数，以及相对方案的用量。\n• 调试控制台：实时查看应用的事件。\n• 审批：批准或拒绝来自工作流和 AI 代理的请求，附上留言，并查看是谁做的决定。\n• 等候室：查看排队的人并放行。\n• Live Chat：打开团队收件箱，回复网站访客。\n• 通知：审批请求、用量提醒、服务状态、付款与 Webhook 问题都会以推送通知送达，点一下即可打开对应页面。\n• 七种语言：英语、日语、韩语、泰语、越南语、简体中文和繁体中文。\n\n使用前需要 Hibira 账号，可在 hibira.io 免费注册。",
+  "keywords": "实时,WebSocket,Pusher,审批,推送通知,等候室,在线客服,开发者,控制台",
+  "promotionalText": "在手机上处理审批、查看应用事件、接收用量提醒。",
+  "supportUrl": "https://hibira.io/portal/support",
+  "marketingUrl": "https://hibira.io/"
+}

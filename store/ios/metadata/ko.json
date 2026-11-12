@@ -1,0 +1,10 @@
+{
+  "name": "Hibira",
+  "subtitle": "실시간 앱을 어디서나",
+  "privacyPolicyUrl": "https://hibira.io/legal/privacy",
+  "description": "Hibira를 손안에. 실시간 앱 상태 확인, 승인 요청 처리, 대기실과 라이브 채팅 확인을 하나의 앱에서.\n\n• 개요: 앱별 연결 수, 메시지 수, 요금제 대비 사용량.\n• 디버그 콘솔: 앱의 이벤트를 실시간으로 확인.\n• 승인: 워크플로와 AI 에이전트의 요청을 승인하거나 거절하고, 코멘트를 남기고, 누가 결정했는지 확인.\n• 대기실: 대기 중인 사람을 확인하고 입장시키기.\n• 라이브 채팅: 팀 받은편지함을 열고 웹사이트 방문자에게 답장.\n• 알림: 승인 요청, 사용량 알림, 서비스 상태, 결제 및 웹훅 문제를 푸시 알림으로 받기. 탭하면 해당 페이지가 열립니다.\n• 7개 언어: 영어, 일본어, 한국어, 태국어, 베트남어, 중국어 간체, 중국어 번체.\n\nHibira 계정이 필요합니다. hibira.io에서 무료로 가입하세요.",
+  "keywords": "실시간,WebSocket,Pusher,승인,푸시 알림,대기실,라이브 채팅,개발자,대시보드",
+  "promotionalText": "승인 요청 처리, 앱 이벤트 확인, 사용량 알림을 휴대폰에서.",
+  "supportUrl": "https://hibira.io/portal/support",
+  "marketingUrl": "https://hibira.io/"
+}
