@@ -1,0 +1,10 @@
+{
+  "name": "Hibira",
+  "subtitle": "Your realtime apps, anywhere",
+  "privacyPolicyUrl": "https://hibira.io/legal/privacy",
+  "description": "Hibira in your pocket. Check on your realtime apps, answer approval requests and keep an eye on your waiting rooms and live chat, all from one app.\n\n• Overview: every app's connections, messages and usage against your plan.\n• Debug console: watch your app's events as they happen.\n• Approvals: approve or reject requests from your workflows and AI agents, add a comment, and see who decided what.\n• Waiting rooms: see who is queued and let people in.\n• Live Chat: open your team's inbox and reply to website visitors.\n• Notifications: approval requests, usage alerts, service status, payment and webhook problems arrive as push notifications. Tap one to open the page it is about.\n• Seven languages: English, Japanese, Korean, Thai, Vietnamese, Simplified Chinese and Traditional Chinese.\n\nHibira needs a Hibira account. Sign up free at hibira.io.",
+  "keywords": "realtime,websocket,pusher,approvals,push notifications,waiting room,live chat,developer,dashboard",
+  "promotionalText": "Approve requests, watch your apps' events and get usage alerts on your phone.",
+  "supportUrl": "https://hibira.io/portal/support",
+  "marketingUrl": "https://hibira.io/"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Hibira",
+  "subtitle": "隨時隨地掌握你的即時應用",
+  "privacyPolicyUrl": "https://hibira.io/legal/privacy",
+  "description": "把 Hibira 放進口袋。查看即時應用狀態、處理審批請求、關注等候室與線上客服，一個 App 全搞定。\n\n• 總覽：每個應用的連線數、訊息數，以及相對方案的用量。\n• 偵錯主控台：即時查看應用的事件。\n• 審批：核准或拒絕來自工作流程與 AI 代理的請求，附上留言，並查看是誰做的決定。\n• 等候室：查看排隊的人並放行。\n• Live Chat：開啟團隊收件匣，回覆網站訪客。\n• 通知：審批請求、用量提醒、服務狀態、付款與 Webhook 問題都會以推播通知送達，點一下即可開啟對應頁面。\n• 七種語言：英文、日文、韓文、泰文、越南文、簡體中文與繁體中文。\n\n使用前需要 Hibira 帳號，可在 hibira.io 免費註冊。",
+  "keywords": "即時,WebSocket,Pusher,審批,推播通知,等候室,線上客服,開發者,主控台",
+  "promotionalText": "在手機上處理審批、查看應用事件、接收用量提醒。",
+  "supportUrl": "https://hibira.io/portal/support",
+  "marketingUrl": "https://hibira.io/"
+}

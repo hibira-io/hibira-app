@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation|density"
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBarLaunch"
+            android:launchMode="singleTask"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- The signed-in portal and its email links open here (hibira.io/.well-known/assetlinks.json,
+                 appLinkPaths in pusher-server mobileapp.go). Billing stays in the browser. -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/dashboard" />
+                <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/apps" />
+                <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/approvals" />
+                <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/settings" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/portal/activity" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/portal/team" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/portal/api-tokens" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/portal/support" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/portal/join" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/portal/reset-password" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/portal/login" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/api/v1/verify-email" />
+                <data android:scheme="https" android:host="hibira.io" android:path="/api/v1/confirm-email" />
+            </intent-filter>
+
+            <!-- Provider sign-ins (Apple, Google, Microsoft, GitHub) return here from the browser
+                 (HibiraAppAuthPlugin); the link only works with the page's own secret. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="io.hibira.app" android:host="auth" />
+            </intent-filter>
+
+        </activity>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="alerts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+    </application>
+
+    <!-- Permissions -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

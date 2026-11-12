@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Hibira</string>
+    <string name="title_activity_main">Hibira</string>
+    <string name="package_name">io.hibira.app</string>
+    <string name="custom_url_scheme">io.hibira.app</string>
+</resources>

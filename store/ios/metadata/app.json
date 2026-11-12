@@ -1,0 +1,33 @@
+{
+  "primaryCategory": "DEVELOPER_TOOLS",
+  "secondaryCategory": "BUSINESS",
+  "contentRightsDeclaration": "DOES_NOT_USE_THIRD_PARTY_CONTENT",
+  "copyright": "2026 Hibira",
+  "ageRating": {
+    "advertising": false,
+    "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+    "contests": "NONE",
+    "gambling": false,
+    "gamblingSimulated": "NONE",
+    "gunsOrOtherWeapons": "NONE",
+    "healthOrWellnessTopics": false,
+    "horrorOrFearThemes": "NONE",
+    "lootBox": false,
+    "matureOrSuggestiveThemes": "NONE",
+    "medicalOrTreatmentInformation": "NONE",
+    "messagingAndChat": true,
+    "parentalControls": false,
+    "ageAssurance": false,
+    "profanityOrCrudeHumor": "NONE",
+    "sexualContentGraphicAndNudity": "NONE",
+    "sexualContentOrNudity": "NONE",
+    "socialMedia": false,
+    "socialMediaAgeRestricted": false,
+    "unrestrictedWebAccess": false,
+    "userGeneratedContent": true,
+    "violenceCartoonOrFantasy": "NONE",
+    "violenceRealistic": "NONE",
+    "violenceRealisticProlongedGraphicOrSadistic": "NONE"
+  },
+  "reviewNotes": "Hibira (https://hibira.io) is a hosted realtime messaging service for developers. This app is the mobile console for Hibira customers: it shows their realtime apps, usage, debug events, waiting rooms, approval requests and their Live Chat inbox, and sends push notifications for approval requests, usage alerts, service status, and payment and webhook problems.\n\nTo review: sign in with the demo email and password below. The overview lists a sample account's apps; open one to see its live events, open Approvals to approve or reject a sample request, and open Live Chat to see the team inbox.\n\nSign in with Apple is offered next to Google, Microsoft and GitHub. The app sells nothing and has no in-app purchases; plans are managed on the website, and billing pages are hidden in the app."
+}

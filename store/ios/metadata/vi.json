@@ -1,0 +1,10 @@
+{
+  "name": "Hibira",
+  "subtitle": "Ứng dụng realtime mọi nơi",
+  "privacyPolicyUrl": "https://hibira.io/legal/privacy",
+  "description": "Hibira trong túi bạn. Theo dõi các ứng dụng thời gian thực, trả lời yêu cầu phê duyệt, xem phòng chờ và live chat, tất cả trong một ứng dụng.\n\n• Tổng quan: số kết nối, tin nhắn và mức sử dụng so với gói của từng ứng dụng.\n• Bảng gỡ lỗi: xem sự kiện của ứng dụng ngay khi chúng xảy ra.\n• Phê duyệt: duyệt hoặc từ chối yêu cầu từ quy trình và tác tử AI, thêm bình luận và xem ai đã quyết định.\n• Phòng chờ: xem ai đang xếp hàng và cho họ vào.\n• Live Chat: mở hộp thư của nhóm và trả lời khách truy cập website.\n• Thông báo: yêu cầu phê duyệt, cảnh báo mức sử dụng, trạng thái dịch vụ, sự cố thanh toán và webhook được gửi dưới dạng thông báo đẩy. Chạm để mở trang liên quan.\n• Bảy ngôn ngữ: tiếng Anh, Nhật, Hàn, Thái, Việt, Trung giản thể và Trung phồn thể.\n\nCần có tài khoản Hibira. Đăng ký miễn phí tại hibira.io.",
+  "keywords": "thời gian thực,WebSocket,Pusher,phê duyệt,thông báo đẩy,phòng chờ,live chat,lập trình,dashboard",
+  "promotionalText": "Phê duyệt yêu cầu, xem sự kiện ứng dụng và nhận cảnh báo mức sử dụng trên điện thoại.",
+  "supportUrl": "https://hibira.io/portal/support",
+  "marketingUrl": "https://hibira.io/"
+}
