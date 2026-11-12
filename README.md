@@ -67,7 +67,7 @@ another app that claims the scheme gains nothing.
 
 Push a tag: `v1.2.3` builds version `1.2.3`, build number `1002003`. Each tag can go to a store once.
 
-- **iPhone:** Xcode signs in the cloud with the API key, archives, and uploads to TestFlight. Store text in seven
+- **iPhone:** Xcode signs in the cloud with the API key, archives, and uploads to TestFlight. The Apple Development certificate Xcode makes on each fresh runner is revoked at the end of the job, so they don't pile up on the team. Store text in seven
   languages is in `store/ios/metadata/` (review notes in `app.json`; add the demo account's sign-in there in App
   Store Connect).
 - **Android:** builds and signs the `.aab` and keeps it as the run's artifact; with `PLAY_SERVICE_ACCOUNT_JSON` it
