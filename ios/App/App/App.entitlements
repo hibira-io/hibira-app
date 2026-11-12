@@ -7,6 +7,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:hibira.io</string>
+		<string>applinks:approvals.hibira.io</string>
 		<string>webcredentials:hibira.io</string>
 	</array>
 </dict>

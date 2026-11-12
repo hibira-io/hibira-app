@@ -11,9 +11,9 @@ separate app. Agents who only answer chats keep using it; account owners and dev
 | | |
 | --- | --- |
 | App ID | `io.hibira.app` (iOS bundle ID and Android package), name "Hibira" |
-| Opens | `https://hibira.io/portal/dashboard`; the user agent ends in `HibiraApp/ios` or `HibiraApp/android`. `chat.hibira.io` (the Live Chat inbox) also opens inside the app. |
+| Opens | `https://hibira.io/portal/dashboard`; the user agent ends in `HibiraApp/ios` or `HibiraApp/android`. `chat.hibira.io` (the Live Chat inbox) and `approvals.hibira.io` (the Approvals inbox) also open inside the app. |
 | Sign-in | Email and password in the web view. Apple, Google, Microsoft or GitHub open in the system browser (`HibiraAppAuth`, below), because Google refuses web views; Sign in with Apple is offered per App Store guideline 4.8. |
-| Notifications | [Hibira Push](https://hibira.io/guides/push-notifications): [hibira-push-ios](https://github.com/hibira-io/hibira-push-ios) (APNs) and [hibira-push-android](https://github.com/hibira-io/hibira-push-android) (FCM). Every notice the portal sends to browsers also reaches the phone: approval requests, usage alerts, service status, failed payments and failing webhooks. A tap opens the page it is about (`/portal/approvals/<id>`, `/portal/apps/<id>`, …). |
+| Notifications | [Hibira Push](https://hibira.io/guides/push-notifications): [hibira-push-ios](https://github.com/hibira-io/hibira-push-ios) (APNs) and [hibira-push-android](https://github.com/hibira-io/hibira-push-android) (FCM). Every notice the portal sends to browsers also reaches the phone: approval requests, usage alerts, service status, failed payments and failing webhooks. A tap opens the page it is about (`approvals.hibira.io/inbox/<id>`, `/portal/apps/<id>`, …). |
 | Sold in the app | Nothing. Plans are bought on the website; the portal hides billing in the app. |
 | Server side | pusher-server `internal/billing/mobileapp.go`: `/.well-known/apple-app-site-association`, `/.well-known/assetlinks.json`, `POST /api/v1/login/app`, `POST /api/v1/me/app-push`. The portal's side is `web/portal/src/lib/nativeApp.ts`. |
 
@@ -67,7 +67,7 @@ another app that claims the scheme gains nothing.
 
 Push a tag: `v1.2.3` builds version `1.2.3`, build number `1002003`. Each tag can go to a store once.
 
-- **iPhone:** Xcode signs in the cloud with the API key, archives, and uploads to TestFlight. Store text in seven
+- **iPhone:** Xcode signs in the cloud with the API key, archives, and uploads to TestFlight. The Apple Development certificate Xcode makes on each fresh runner is revoked at the end of the job, so they don't pile up on the team. Store text in seven
   languages is in `store/ios/metadata/` (review notes in `app.json`; add the demo account's sign-in there in App
   Store Connect).
 - **Android:** builds and signs the `.aab` and keeps it as the run's artifact; with `PLAY_SERVICE_ACCOUNT_JSON` it

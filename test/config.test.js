@@ -20,8 +20,8 @@ test("the web view opens the portal and stays on Hibira's hosts", () => {
   const url = new URL(config.server.url);
   assert.equal(url.host, HOST);
   assert.equal(url.pathname, "/portal/dashboard");
-  // Live Chat's inbox (chat.hibira.io) opens in the app too.
-  assert.deepEqual(config.server.allowNavigation, [HOST, "chat.hibira.io"]);
+  // Live Chat's inbox and the Approvals site open in the app too.
+  assert.deepEqual(config.server.allowNavigation, [HOST, "chat.hibira.io", "approvals.hibira.io"]);
   assert.equal(config.ios.appendUserAgent, "HibiraApp/ios");
   assert.equal(config.android.appendUserAgent, "HibiraApp/android");
 });
@@ -29,10 +29,11 @@ test("the web view opens the portal and stays on Hibira's hosts", () => {
 test("portal links open the app", () => {
   const ent = read("ios/App/App/App.entitlements");
   assert.match(ent, new RegExp(`applinks:${HOST.replace(".", "\\.")}`));
+  assert.match(ent, /applinks:approvals\.hibira\.io/);
   assert.match(ent, /aps-environment/);
   const manifest = read("android/app/src/main/AndroidManifest.xml");
   assert.match(manifest, /android:autoVerify="true"/);
-  for (const path of ['android:pathPrefix="/portal/dashboard"', 'android:pathPrefix="/portal/approvals"', 'android:path="/portal/reset-password"']) {
+  for (const path of ['android:pathPrefix="/portal/dashboard"', 'android:host="approvals.hibira.io" android:pathPrefix="/inbox"', 'android:path="/portal/reset-password"']) {
     assert.ok(manifest.includes(path), path);
   }
   // Billing stays in the browser: nothing is sold in the app.
@@ -44,7 +45,8 @@ test("the plugins only open links on hibira.io", () => {
   const java = read("plugins/hibira-app-push/android/src/main/java/io/hibira/app/push/HibiraAppPushPlugin.java");
   assert.match(swift, /static let host = "hibira\.io"/);
   assert.match(java, /HOST = "hibira\.io"/);
-  assert.match(swift, /url\.scheme == "https", url\.host == Self\.host/);
+  assert.match(swift, /static let linkHosts: Set<String> = \[host, "approvals\.hibira\.io", "chat\.hibira\.io"\]/);
+  assert.match(java, /LINK_HOSTS = java\.util\.Arrays\.asList\(HOST, "approvals\.hibira\.io", "chat\.hibira\.io"\)/);
 });
 
 test("provider sign-ins come back on the app's scheme", () => {

@@ -24,6 +24,8 @@ public class HibiraAppPushPlugin: CAPPlugin, CAPBridgedPlugin, NotificationHandl
         CAPPluginMethod(name: "signOut", returnType: CAPPluginReturnPromise)
     ]
     static let host = "hibira.io"
+    /// Notification taps and app links open pages on these hosts only.
+    static let linkHosts: Set<String> = [host, "approvals.hibira.io", "chat.hibira.io"]
     private let tokens = HandedToken()
     private let userKey = "io.hibira.app.push-user"
 
@@ -91,7 +93,7 @@ public class HibiraAppPushPlugin: CAPPlugin, CAPBridgedPlugin, NotificationHandl
     }
 
     private func open(_ url: URL) {
-        guard url.scheme == "https", url.host == Self.host else { return }
+        guard url.scheme == "https", let host = url.host, Self.linkHosts.contains(host) else { return }
         DispatchQueue.main.async { _ = self.bridge?.webView?.load(URLRequest(url: url)) }
     }
 

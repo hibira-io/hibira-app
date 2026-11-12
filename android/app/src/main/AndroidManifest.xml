@@ -30,7 +30,6 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/dashboard" />
                 <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/apps" />
-                <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/approvals" />
                 <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/settings" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/activity" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/team" />
@@ -41,6 +40,15 @@
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/login" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/api/v1/verify-email" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/api/v1/confirm-email" />
+            </intent-filter>
+
+            <!-- Approval requests on the Approvals site (approvals.hibira.io/inbox/<id>, its
+                 /.well-known/assetlinks.json) open here too. -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="approvals.hibira.io" android:pathPrefix="/inbox" />
             </intent-filter>
 
             <!-- Provider sign-ins (Apple, Google, Microsoft, GitHub) return here from the browser

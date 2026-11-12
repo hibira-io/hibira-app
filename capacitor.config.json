@@ -6,7 +6,8 @@
     "url": "https://hibira.io/portal/dashboard",
     "allowNavigation": [
       "hibira.io",
-      "chat.hibira.io"
+      "chat.hibira.io",
+      "approvals.hibira.io"
     ],
     "errorPath": "offline.html"
   },

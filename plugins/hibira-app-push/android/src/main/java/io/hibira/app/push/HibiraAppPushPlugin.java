@@ -37,6 +37,8 @@ import java.util.UUID;
     permissions = {@Permission(alias = "notifications", strings = {Manifest.permission.POST_NOTIFICATIONS})})
 public class HibiraAppPushPlugin extends Plugin {
     static final String HOST = "hibira.io";
+    /** Notification taps and app links open pages on these hosts only. */
+    static final java.util.List<String> LINK_HOSTS = java.util.Arrays.asList(HOST, "approvals.hibira.io", "chat.hibira.io");
     private static final String PREFS = "hibira-app-push";
     private static final String USER = "user";
 
@@ -62,7 +64,7 @@ public class HibiraAppPushPlugin extends Plugin {
         if (extra != null) {
             uri = Uri.parse(extra);
         }
-        if (uri == null || !"https".equals(uri.getScheme()) || !HOST.equals(uri.getHost())) {
+        if (uri == null || !"https".equals(uri.getScheme()) || !LINK_HOSTS.contains(uri.getHost())) {
             return;
         }
         final String url = uri.toString();
