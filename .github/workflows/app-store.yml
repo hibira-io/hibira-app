@@ -1,0 +1,66 @@
+# App Store listing: Actions → app-store → Run workflow.
+# Works on the iOS version being prepared in App Store Connect (created as
+# `version` when there is none), with the same team API key as the release:
+# - metadata: store/ios/metadata (texts in every language, categories, age
+#   rating, content rights, review details; demo account from the secrets
+#   ASC_DEMO_USER / ASC_DEMO_PASSWORD when set)
+# - pricing: free, in every territory except EXCLUDE_TERRITORIES
+# - build: attaches the newest TestFlight build to the version
+# - testflight: an internal TestFlight group with every team user in it
+# - inspect: prints the reference app's age rating and review details
+name: app-store
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to create when none is being prepared
+        default: "0.1.0"
+      step:
+        description: What to update
+        type: choice
+        options: [all, metadata, pricing, build, testflight, inspect]
+        default: all
+
+permissions:
+  contents: read
+
+concurrency:
+  group: app-store
+
+env:
+  ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+  ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+  ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+  BUNDLE_ID: io.hibira.app
+  VERSION: ${{ inputs.version }}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with: { node-version: 22 }
+      - name: Inspect
+        if: inputs.step == 'inspect'
+        run: node .github/scripts/asc-inspect.mjs
+      - name: Metadata
+        if: inputs.step == 'all' || inputs.step == 'metadata'
+        env:
+          ASC_DEMO_USER: ${{ secrets.ASC_DEMO_USER }}
+          ASC_DEMO_PASSWORD: ${{ secrets.ASC_DEMO_PASSWORD }}
+        run: node .github/scripts/asc-metadata.mjs
+      - name: Free price and territories
+        if: inputs.step == 'all' || inputs.step == 'pricing'
+        env:
+          # Japan waits for the Telecommunications Business Act notification
+          # (the Live Chat inbox is in the app); mainland China needs its own
+          # licences.
+          EXCLUDE_TERRITORIES: JPN,CHN
+        run: node .github/scripts/asc-pricing.mjs
+      - name: TestFlight group
+        if: inputs.step == 'testflight'
+        run: node .github/scripts/asc-testflight.mjs
+      - name: Newest TestFlight build on the version
+        if: inputs.step == 'build'
+        run: node .github/scripts/asc-build.mjs

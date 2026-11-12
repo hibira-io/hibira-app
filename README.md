@@ -74,6 +74,8 @@ Push a tag: `v1.2.3` builds version `1.2.3`, build number `1002003`. Each tag ca
   also uploads to internal testing. An individual Play account needs a closed test with 12 testers for 14 days
   before production.
 
+The App Store listing (texts in all seven languages, categories, age rating, review details, free price) is filled by Actions → **app-store** → Run workflow, from `store/ios/metadata/`.
+
 Screenshots must be real ones of the app; they are not in the repo yet.
 
 Pull requests build both apps without signing (`ci.yml`), and `npm test` checks that the IDs, hosts and link paths
