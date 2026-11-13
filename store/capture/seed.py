@@ -17,8 +17,9 @@ o=requests.Session(); o.headers.update({'Origin':B})
 t0=time.time()
 r=o.post(B+'/api/v1/signup',json={'email':EMAIL,'password':'Demo-password-123!','name':'Sakura Tea','locale':'en','accept_terms':True}); r.raise_for_status()
 acct=r.json()['account']['id']
-link=re.search(r'(http\S+verify-email\S+)',lastmail(t0,EMAIL)).group(1).replace('localhost:8080','127.0.0.1:8080')
-o.get(link)
+# The link carries its token in the fragment; the page posts it.
+token=re.search(r'verify-email\S*[#?]token=([\w.~-]+)',lastmail(t0,EMAIL)).group(1)
+o.post(B+'/api/v1/verify-email',json={'token':token}).raise_for_status()
 csrf=o.get(B+'/api/v1/me').json()['csrf_token']; o.headers['X-CSRF-Token']=csrf
 # console: plan
 c=requests.Session(); c.headers.update({'Origin':B})
