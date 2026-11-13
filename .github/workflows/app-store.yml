@@ -6,6 +6,8 @@
 #   ASC_DEMO_USER / ASC_DEMO_PASSWORD when set)
 # - screenshots: store/ios/screenshots (6.9" iPhone, every language; made
 #   with store/capture)
+# - creative: store/ios/creative (product page header and search results
+#   art, every language; made with store/capture/hero.cjs)
 # - pricing: free, in every territory except EXCLUDE_TERRITORIES
 # - build: attaches the newest TestFlight build to the version
 # - testflight: an internal TestFlight group with every team user in it
@@ -20,7 +22,7 @@ on:
       step:
         description: What to update
         type: choice
-        options: [all, metadata, screenshots, pricing, build, testflight, inspect]
+        options: [all, metadata, screenshots, creative, pricing, build, testflight, inspect]
         default: all
 
 permissions:
@@ -55,6 +57,9 @@ jobs:
       - name: Screenshots
         if: inputs.step == 'all' || inputs.step == 'screenshots'
         run: node .github/scripts/asc-screenshots.mjs
+      - name: Header and search results art
+        if: inputs.step == 'all' || inputs.step == 'creative'
+        run: node .github/scripts/asc-creative.mjs
       - name: Free price and territories
         if: inputs.step == 'all' || inputs.step == 'pricing'
         env:

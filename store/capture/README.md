@@ -15,5 +15,8 @@ and Thai fonts):
 3. `./all.sh en ja ko zh-TW zh-CN th vi` switches the account's language, gives the inbox that language's four
    requests (`texts.json`) and saves `raw/<lang>/*.png`.
 4. `node compose.cjs ../ios/screenshots en ja ko zh-TW zh-CN th vi` adds the frame and the headlines.
+5. `node hero.cjs ../ios/creative en ja ko zh-TW zh-CN th vi` makes the product page header and search
+   results art (one 16:9 universal PNG per language; headline and icon in Apple's art safe area, the same real
+   screens on both sides). Actions → app-store → `creative` uploads it.
 
 Nothing here talks to production; `state.json`, `mail/`, `raw/` and the binaries stay local.
