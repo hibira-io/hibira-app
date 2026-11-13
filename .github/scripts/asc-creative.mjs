@@ -34,11 +34,15 @@ const lib = (await tryGet(`/apps/${app.id}/assetLibrary`))?.data;
 const libId = lib?.id ?? app.id;
 console.log(`Asset library ${libId}`);
 
-// Placement groups and the specs each one takes, for placements that ask for a group.
+// Placement groups for placements that ask for one.
 const ref = await tryGet("/appAssetLibraryRefData");
-console.log("Reference data:", JSON.stringify(ref).slice(0, 4000));
-/** @type {any[]} */
-const groups = (ref?.data ?? []).concat(ref?.included ?? []).filter((/** @type {any} */ r) => /group/i.test(r.type ?? "") || r.attributes?.specMappings);
+/** Placement groups a version placement of `type` may use. @param {string} type @returns {string[]} */
+const groupsFor = (type) =>
+  (ref?.data?.[0]?.attributes?.features ?? [])
+    .filter((/** @type {any} */ f) => f.featureId === "APP_STORE_VERSIONS")
+    .flatMap((/** @type {any} */ f) => f.placementPolicies)
+    .filter((/** @type {any} */ p) => p.placementType === type)
+    .flatMap((/** @type {any} */ p) => p.groupLimits.flatMap((/** @type {any} */ g) => g.groupIds));
 
 const locs = (await asc("GET", `/appStoreVersions/${version.id}/appStoreVersionLocalizations?limit=50`)).data;
 let summary = "";
@@ -95,16 +99,14 @@ for (const locale of (await readdir(DIR)).sort()) {
     try {
       await asc("POST", "/appAssetLibraryPlacements", body);
     } catch (e) {
-      // Some placements need a placement group: try the groups that take this image's spec.
-      const spec = /** @type {any} */ (attrs).specId;
-      const fits = groups.filter((g) => !spec || JSON.stringify(g.attributes?.specMappings ?? "").includes(spec));
+      // Some placements need a placement group (DEFAULT_PROFILE for these two).
       let placed = false;
-      for (const g of fits) {
-        const group = g.attributes?.placementGroup ?? g.attributes?.name ?? g.id;
+      for (const group of groupsFor(type)) {
         try {
           await asc("POST", "/appAssetLibraryPlacements", { data: { ...body.data, attributes: { placementType: type, placementGroup: group } } });
           console.log(`${locale}: ${type} placed in group ${group}`);
           placed = true;
+          break;
         } catch (e2) {
           console.log(`${locale}: group ${group}: ${/** @type {Error} */ (e2).message.slice(0, 300)}`);
         }
