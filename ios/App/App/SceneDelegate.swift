@@ -8,7 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = CAPBridgeViewController()
+        window?.rootViewController = AppViewController()
         window?.makeKeyAndVisible()
 
         SceneDelegateProxy.shared.scene(scene, willConnectTo: session, options: connectionOptions)
@@ -20,5 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         SceneDelegateProxy.shared.scene(scene, continue: userActivity)
+    }
+}
+
+/// The web view, with the edge swipe people use to go back in an iPhone app.
+/// The pages keep their own history (the portal is a single-page app), so the
+/// swipe follows it the way Safari does.
+class AppViewController: CAPBridgeViewController {
+    override func capacitorDidLoad() {
+        webView?.allowsBackForwardNavigationGestures = true
     }
 }
