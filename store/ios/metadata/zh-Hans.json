@@ -6,5 +6,6 @@
   "keywords": "实时,WebSocket,Pusher,审批,推送通知,等候室,在线客服,开发者,控制台",
   "promotionalText": "在手机上处理审批、查看应用事件、接收用量提醒。",
   "supportUrl": "https://hibira.io/portal/support",
-  "marketingUrl": "https://hibira.io/"
+  "marketingUrl": "https://hibira.io/",
+  "whatsNew": "审批和 Live Chat 现在直接在 Hibira 里打开，点击审批邮件或通知中的链接会直接带你到那条申请。\n其他修复与改进。"
 }

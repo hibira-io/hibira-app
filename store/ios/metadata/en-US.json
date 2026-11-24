@@ -6,5 +6,6 @@
   "keywords": "realtime,websocket,pusher,approvals,push notifications,waiting room,live chat,developer,dashboard",
   "promotionalText": "Approve requests, watch your apps' events and get usage alerts on your phone.",
   "supportUrl": "https://hibira.io/portal/support",
-  "marketingUrl": "https://hibira.io/"
+  "marketingUrl": "https://hibira.io/",
+  "whatsNew": "Approvals and Live Chat now open right inside Hibira, so links from approval emails and notifications take you straight to the request.\nFixes and polish."
 }
