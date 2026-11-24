@@ -37,7 +37,6 @@ test("portal links open the app", () => {
   for (const path of [
     'android:pathPrefix="/portal/dashboard"',
     'android:host="hibira.io" android:pathPrefix="/portal/approvals/inbox"',
-    'android:host="hibira.io" android:pathPrefix="/portal/live-chat/inbox"',
     'android:host="approvals.hibira.io" android:pathPrefix="/inbox"',
     'android:path="/portal/reset-password"',
   ]) {
@@ -45,6 +44,8 @@ test("portal links open the app", () => {
   }
   // Billing stays in the browser: nothing is sold in the app.
   assert.ok(!/\/billing|\/pricing/.test(manifest));
+  // Live Chat's inbox links belong to the Hibira Chat app.
+  assert.ok(!manifest.includes("/portal/live-chat"));
 });
 
 test("the plugins only open links on hibira.io", () => {

@@ -38,10 +38,9 @@
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/join" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/reset-password" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/login" />
-                <!-- Approvals and Live Chat are pages of hibira.io: approval requests
-                     (/portal/approvals/inbox/<id>) and the Live Chat inbox; their billing stays in the browser. -->
+                <!-- Approval requests are pages of hibira.io (/portal/approvals/inbox/<id>).
+                     Live Chat's inbox links belong to the Hibira Chat app. -->
                 <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/approvals/inbox" />
-                <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/live-chat/inbox" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/api/v1/verify-email" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/api/v1/confirm-email" />
             </intent-filter>
