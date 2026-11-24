@@ -38,12 +38,15 @@
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/join" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/reset-password" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/portal/login" />
+                <!-- Approval requests are pages of hibira.io (/portal/approvals/inbox/<id>).
+                     Live Chat's inbox links belong to the Hibira Chat app. -->
+                <data android:scheme="https" android:host="hibira.io" android:pathPrefix="/portal/approvals/inbox" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/api/v1/verify-email" />
                 <data android:scheme="https" android:host="hibira.io" android:path="/api/v1/confirm-email" />
             </intent-filter>
 
-            <!-- Approval requests on the Approvals site (approvals.hibira.io/inbox/<id>, its
-                 /.well-known/assetlinks.json) open here too. -->
+            <!-- Links in approval emails sent before Approvals moved to hibira.io
+                 (approvals.hibira.io/inbox/<id>, which now redirects there). -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />

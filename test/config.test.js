@@ -20,7 +20,8 @@ test("the web view opens the portal and stays on Hibira's hosts", () => {
   const url = new URL(config.server.url);
   assert.equal(url.host, HOST);
   assert.equal(url.pathname, "/portal/dashboard");
-  // Live Chat's inbox and the Approvals site open in the app too.
+  // Live Chat and Approvals are pages of hibira.io; their old hosts only
+  // redirect there, and the redirect stays in the app.
   assert.deepEqual(config.server.allowNavigation, [HOST, "chat.hibira.io", "approvals.hibira.io"]);
   assert.equal(config.ios.appendUserAgent, "HibiraApp/ios");
   assert.equal(config.android.appendUserAgent, "HibiraApp/android");
@@ -33,11 +34,18 @@ test("portal links open the app", () => {
   assert.match(ent, /aps-environment/);
   const manifest = read("android/app/src/main/AndroidManifest.xml");
   assert.match(manifest, /android:autoVerify="true"/);
-  for (const path of ['android:pathPrefix="/portal/dashboard"', 'android:host="approvals.hibira.io" android:pathPrefix="/inbox"', 'android:path="/portal/reset-password"']) {
+  for (const path of [
+    'android:pathPrefix="/portal/dashboard"',
+    'android:host="hibira.io" android:pathPrefix="/portal/approvals/inbox"',
+    'android:host="approvals.hibira.io" android:pathPrefix="/inbox"',
+    'android:path="/portal/reset-password"',
+  ]) {
     assert.ok(manifest.includes(path), path);
   }
   // Billing stays in the browser: nothing is sold in the app.
   assert.ok(!/\/billing|\/pricing/.test(manifest));
+  // Live Chat's inbox links belong to the Hibira Chat app.
+  assert.ok(!manifest.includes("/portal/live-chat"));
 });
 
 test("the plugins only open links on hibira.io", () => {

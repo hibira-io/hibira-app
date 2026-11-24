@@ -6,5 +6,6 @@
   "keywords": "リアルタイム,WebSocket,Pusher,承認,プッシュ通知,待合室,ライブチャット,開発者,ダッシュボード",
   "promotionalText": "承認リクエストへの対応、アプリのイベント確認、使用量のお知らせをスマートフォンで。",
   "supportUrl": "https://hibira.io/portal/support",
-  "marketingUrl": "https://hibira.io/"
+  "marketingUrl": "https://hibira.io/",
+  "whatsNew": "承認と Live Chat が Hibira の中で直接開くようになりました。承認メールや通知のリンクから、その申請へすぐに移動できます。\nその他の修正と改善。"
 }

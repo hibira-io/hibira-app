@@ -6,5 +6,6 @@
   "keywords": "thời gian thực,WebSocket,Pusher,phê duyệt,thông báo đẩy,phòng chờ,live chat,lập trình,dashboard",
   "promotionalText": "Phê duyệt yêu cầu, xem sự kiện ứng dụng và nhận cảnh báo mức sử dụng trên điện thoại.",
   "supportUrl": "https://hibira.io/portal/support",
-  "marketingUrl": "https://hibira.io/"
+  "marketingUrl": "https://hibira.io/",
+  "whatsNew": "Phê duyệt và Live Chat giờ mở ngay trong Hibira; liên kết trong email hoặc thông báo phê duyệt đưa bạn thẳng tới yêu cầu đó.\nCác bản sửa lỗi và cải tiến khác."
 }

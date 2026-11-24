@@ -6,5 +6,6 @@
   "keywords": "실시간,WebSocket,Pusher,승인,푸시 알림,대기실,라이브 채팅,개발자,대시보드",
   "promotionalText": "승인 요청 처리, 앱 이벤트 확인, 사용량 알림을 휴대폰에서.",
   "supportUrl": "https://hibira.io/portal/support",
-  "marketingUrl": "https://hibira.io/"
+  "marketingUrl": "https://hibira.io/",
+  "whatsNew": "이제 승인과 Live Chat이 Hibira 안에서 바로 열립니다. 승인 메일이나 알림의 링크를 누르면 해당 요청으로 바로 이동합니다.\n기타 수정 및 개선."
 }
