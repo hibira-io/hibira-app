@@ -73,6 +73,10 @@ Push a tag: `v1.2.3` builds version `1.2.3`, build number `1002003`. Each tag ca
 - **Android:** builds and signs the `.aab` and keeps it as the run's artifact; with `PLAY_SERVICE_ACCOUNT_JSON` it
   also uploads to internal testing. An individual Play account needs a closed test with 12 testers for 14 days
   before production.
+- **Android APK:** the same job builds a signed `hibira.apk` and attaches it to the tag's GitHub release (with
+  `hibira-1.2.3.apk` and a `.sha256` file), for phones without Play. The website links to
+  `https://github.com/hibira-io/hibira-app/releases/latest/download/hibira.apk`. Every release is signed with the same
+  upload key, so a newer APK installs over the older one.
 
 The App Store listing (texts in all seven languages, categories, age rating, review details, free price) is filled by Actions → **app-store** → Run workflow, from `store/ios/metadata/`.
 
@@ -107,4 +111,4 @@ Live Chat 收件箱都在里面。Hibira Chat（客服专用 App）继续独立�
 Firebase 加 Android App 并设置 `GOOGLE_SERVICES_JSON`；在 Play 建 App；把本仓库加进组织 Secrets；Android 签名指纹填到 pusher-server
 的 Terraform 变量 `app_android_sha256`。
 
-发版：推送 tag `v1.2.3`，iPhone 自动送 TestFlight，Android 产出 .aab。
+发版：推送 tag `v1.2.3`，iPhone 自动送 TestFlight，Android 产出 .aab；Android 同时把签名的 `hibira.apk` 附到该 tag 的 GitHub Release，官网的 APK 下载链接指向最新一版。
